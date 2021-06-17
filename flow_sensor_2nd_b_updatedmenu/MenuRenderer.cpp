@@ -56,7 +56,7 @@ void SSD1327RunMenuRenderer::render(Menu* menu)
   m_display->clearBuffer();
   m_display->setFont(u8g2_font_ncenB08_tr); // choose a suitable font
   //m_display->drawStr(0, 30, String(String(m_dataSource->getRawMiliVolts_battery()) + "mV").c_str());
-  m_display->drawStr(0, 30, String("2nd order").c_str());
+  //m_display->drawStr(0, 30, String("2nd order").c_str());
   m_display->drawStr(100, 30, String(String(m_dataSource->getRawMiliVolts_battery() / 34.00, 0) + "%").c_str());
   m_display->setFont(u8g2_font_ncenB14_tr); // choose a suitable font
   m_display->drawStr(50, 40, String(selectedGas.getName()).c_str());

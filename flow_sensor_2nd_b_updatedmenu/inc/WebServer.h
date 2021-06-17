@@ -260,20 +260,21 @@ public:
 		client.println(".button2 {background-color: #555555;}</style></head>");
 		
 		// Web Page Heading
-		client.println("<body><h1>ESP32 Web Server</h1>");
+		client.println("<body><h1>PID Analyzers M20 Calibration</h1>");
 		
 		client.println("<form action=\"/\">");
 		
 		std::vector<Gas>& gases = m_gasManager->getAllGases();
 		
 		client.println("<hr style=\"height:2px;border-width:0;color:gray;background-color:gray\">");
-		client.println("<label for=\"fname\">Linear Regression parameters:</label><br>");
+		client.println("<label for=\"fname\">Calibration parameters:</label><br>");
 		client.println("<label for=\"fname\">First P:</label>");
 		client.println("<input type=\"text\" id=\"slope\" name=\"SLOPE\" value=\"" + String(m_gasManager->getSlope(), 6) + "\"></p>");
-		client.println("<label for=\"fname\">Second P:</label>");
-		client.println("<input type=\"text\" id=\"intersect\" name=\"INTERCEPT\" value=\"" + String(m_gasManager->getIntercept(), 6) + "\"><p>");
-        client.println("<label for=\"fname\">Third P:</label>");
+        client.println("<label for=\"fname\">Second P / Slope: </label>");
         client.println("<input type=\"text\" id=\"secondp\" name=\"SECONDP\" value=\"" + String(m_gasManager->getSecondp(), 6) + "\"></br>");
+
+		client.println("<label for=\"fname\">Third P / Intersect:</label>");
+		client.println("<input type=\"text\" id=\"intersect\" name=\"INTERCEPT\" value=\"" + String(m_gasManager->getIntercept(), 6) + "\"><p>");
 	
 		for(int i = 0; i < gases.size(); i++)
 		{
